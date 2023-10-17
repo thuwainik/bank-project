@@ -19,12 +19,13 @@ const Login = () => {
         <form onSubmit={handleFormSubmit}>
           <div className="">
             <label htmlFor="email" className="">
-              Email
+              User Name
             </label>
             <input
-              type="email"
-              name="email"
-              id="email"
+              //   placeholder="Write ur UserName..."
+              type="text"
+              name="username"
+              id="username"
               onChange={handleChange}
               className=""
               required
