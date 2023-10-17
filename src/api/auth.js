@@ -24,7 +24,6 @@ const myProfile = async () => {
   return data;
 };
 
-// =======
 const myTransctions = async () => {
   const { data } = await instance.get("/mini-project/api/transactions/my");
   return data;
