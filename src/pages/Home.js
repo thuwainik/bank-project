@@ -5,6 +5,7 @@ const Home = () => {
     <div className="">
       <div className="">
         <h1 className=""></h1>
+        <img src="" />
         <p className=""></p>
       </div>
     </div>
