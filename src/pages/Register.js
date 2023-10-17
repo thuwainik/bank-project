@@ -23,7 +23,7 @@ const Register = () => {
         <form onSubmit={handleFormSubmit}>
           <div className="">
             <label htmlFor="name" className="">
-              Name
+              UserName
             </label>
             <input
               type="text"
