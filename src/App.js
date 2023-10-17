@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/Home" Component={Home} />
         <Route path="/login" Component={Login} />
-        <Route path="/Register" Component={Register} />
+        <Route path="/profile" Component={Profile} />
       </Routes>
     </div>
   );
