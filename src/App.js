@@ -3,7 +3,8 @@ import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ListofUsers from "./pages/ListofUsers";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
