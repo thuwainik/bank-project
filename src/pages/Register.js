@@ -34,18 +34,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              onChange={handleChange}
-              required
-            />
-          </div>
+          
           <div className="">
             <label htmlFor="password" className="">
               Password
