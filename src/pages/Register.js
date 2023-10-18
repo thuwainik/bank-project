@@ -1,7 +1,16 @@
+import { useMutation } from "@tanstack/react-query";
 import React, { useState } from "react";
+import { register } from "../api/auth";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({});
+  const navigate = useNavigate();
+  const { mutate: registerFn } = useMutation({
+    mutationKey: ["register"],
+    mutationFn: () => register(userInfo),
+    onSuccess: () => navigate("/"),
+  });
 
   const handleChange = (e) => {
     if (e.target.name === "image") {
@@ -12,8 +21,9 @@ const Register = () => {
   };
 
   const handleFormSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     // Add register logic here
+    registerFn();
   };
 
   return (
@@ -27,14 +37,14 @@ const Register = () => {
             </label>
             <input
               type="text"
-              id="name"
-              name="name"
+              id="username"
+              name="username"
               onChange={handleChange}
               className=""
               required
             />
           </div>
-          
+
           <div className="">
             <label htmlFor="password" className="">
               Password

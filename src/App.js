@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/Home" Component={Home} />
         <Route path="/login" Component={Login} />
-        <Route path="/profile" Component={Profile} />
+        <Route path="/register" Component={Register} />
       </Routes>
     </div>
   );

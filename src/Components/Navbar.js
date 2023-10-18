@@ -17,7 +17,7 @@ const Navbar = () => {
             <NavLink to="/login" className="">
               Login
             </NavLink>
-            <NavLink to="/profile" className="">
+            <NavLink to="/register" className="">
               Register
             </NavLink>
           </>

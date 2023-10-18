@@ -1,10 +1,27 @@
 import instance from ".";
+import jwtDecode from "jwt-decode";
 
+const storeToken = (token) => localStorage.setItem("token", token);
+const checkToken = () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const decode = jwtDecode(token);
+    const currentTime = Date.now() / 1000;
+    if (decode.exp < currentTime) {
+      localStorage.removeItem("token");
+      return false;
+    }
+    return true;
+  } else {
+    return false;
+  }
+};
 const login = async (userInfo) => {
   const { data } = await instance.post(
     "/mini-project/api/auth/login",
     userInfo
   );
+  storeToken(data.token);
   return data;
 };
 
@@ -16,6 +33,7 @@ const register = async (userInfo) => {
     "/mini-project/api/auth/register",
     formDate
   );
+  storeToken(data.token);
   return data;
 };
 
