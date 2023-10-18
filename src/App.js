@@ -5,18 +5,27 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Profile from "./pages/Profile";
+import UserContext from "./context/UserContext";
+import { useState } from "react";
+import { checkToken } from "./api/auth";
+import { useEffect } from "react";
 
 function App() {
+  const [user, setUser] = useState(false);
+  useEffect(() => {
+    setUser(checkToken());
+  }, []);
   return (
-    <div className="">
-      <Navbar />
-      <Routes>
-        <Route path="/Home" Component={Home} />
-        <Route path="/login" Component={Login} />
-        <Route path="/register" Component={Register} />
-      </Routes>
-    </div>
+    <UserContext.Provider value={[user, setUser]}>
+      <div className="">
+        <Navbar />
+        <Routes>
+          <Route path="/Home" Component={Home} />
+          <Route path="/login" Component={Login} />
+          <Route path="/register" Component={Register} />
+        </Routes>
+      </div>
+    </UserContext.Provider>
   );
 }
 

@@ -36,6 +36,9 @@ const register = async (userInfo) => {
   storeToken(data.token);
   return data;
 };
+const logout = () => {
+  localStorage.removeItem("token");
+};
 
 const myProfile = async () => {
   const { data } = await instance.get("/mini-project/api/auth/me");
@@ -56,4 +59,13 @@ const getUserbyID = async (userId) => {
   return data;
 };
 
-export { login, register, myProfile, myTransctions, getAllUsers, getUserbyID };
+export {
+  login,
+  register,
+  myProfile,
+  myTransctions,
+  getAllUsers,
+  getUserbyID,
+  checkToken,
+  logout,
+};
