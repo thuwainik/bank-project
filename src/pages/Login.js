@@ -12,7 +12,13 @@ const Login = () => {
   const { mutate: loginFn } = useMutation({
     mutationKey: ["login"],
     mutationFn: () => login(userInfo),
-    onSuccess: () => navigate("/"),
+    onSuccess: () => {
+      setUser(true);
+      navigate("/");
+    },
+    onError: () => {
+      alert("Wrong username or Password");
+    },
   });
   const handleChange = (e) => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -22,7 +28,6 @@ const Login = () => {
     e.preventDefault();
     // Add login logic here
     loginFn();
-    setUser(true);
   };
 
   return (
